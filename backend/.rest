@@ -1,0 +1,75 @@
+// LOCALHOST
+### Get all Entries
+GET http://localhost:8080/exercises
+
+
+### Get contact by id
+GET http://localhost:8080/exercises/622023f642f9ab4cd6e060b3
+
+
+### Create contact
+POST http://localhost:8080/exercises HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "Squads",
+    "Repetitions": "10",
+    "TimeSpend": "5 minutes",
+    "Place": "Home",
+    "Date": "10/10/2023"
+}
+
+
+
+
+### PUT contact
+PUT http://localhost:8080/exercises/645dad57adc2f98cd0c50f28 HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "Squads",
+    "Repetitions": "10",
+    "TimeSpend": "5 minutes",
+    "Place": "Home",
+    "Date": "01/10/2023"
+}
+### DELETE contact
+DELETE http://localhost:8080/exercises/645d8efd9778c6fcbc7c3754 HTTP/1.1
+
+// RENDER
+### Get all contacts
+GET https://cse341-2023.onrender.com/exercises
+
+
+### Get contact by id
+GET https://cse341-2023.onrender.com/exercises/645d8f569778c6fcbc7c3755
+
+
+### Create contact
+POST https://cse341-2023.onrender.com/exercises HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "Squads",
+    "Repetitions": "10",
+    "TimeSpend": "5 minutes",
+    "Place": "Home",
+    "Date": "10/10/2023"
+}
+
+
+
+
+### PUT contact
+PUT https://cse341-2023.onrender.com/exercises/645d8f569778c6fcbc7c3755 HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "Squads",
+    "Repetitions": "10",
+    "TimeSpend": "5 minutes",
+    "Place": "Home",
+    "Date": "10/10/2023"
+}
+### DELETE contact
+DELETE https://cse341-2023.onrender.com/exercises/645d8f569778c6fcbc7c3755 HTTP/1.1
