@@ -4,22 +4,20 @@ GET http://localhost:8080/exercises
 
 
 ### Get contact by id
-GET http://localhost:8080/exercises/622023f642f9ab4cd6e060b3
+GET http://localhost:8080/exercises/64768c107549d1c460c39951
 
 
-### Create contact
+### Create an entry
 POST http://localhost:8080/exercises HTTP/1.1
 content-type: application/json
 
 {
-    "Name": "Squads",
-    "Repetitions": "10",
-    "TimeSpend": "5 minutes",
+    "Name": "Pull Ups 2",
+    "Repetitions": 20,
+    "TimeSpend": 5,
     "Place": "Home",
     "Date": "10/10/2023"
 }
-
-
 
 
 ### PUT contact

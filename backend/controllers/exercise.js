@@ -11,7 +11,9 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('exercise-tracker').collection('exercises').find({ _id: userId });
+  const result = await mongodb.getDb().db('exercise-tracker').collection('exercises').find({
+    _id: userId
+  });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -19,12 +21,16 @@ const getSingle = async (req, res) => {
 };
 
 const createEntry = async (req, res) => {
+  const [month, day, year] = req.body.Date.split("/")
+  const exerciseDate = new Date(`${year}-${month}-${day}`);
+  const formattedDate = exerciseDate.toISOString();
+
   const exercise = {
     Name: req.body.Name,
-    Repetitions: req.body.repetitions,
-    TimeSpend: req.body.timespend,
-    Place: req.body.place,
-    Date: req.body.date
+    Repetitions: req.body.Repetitions,
+    TimeSpend: req.body.TimeSpend,
+    Place: req.body.Place,
+    Date: formattedDate
   };
   const response = await mongodb.getDb().db('exercise-tracker').collection('exercises').insertOne(exercise);
   if (response.acknowledged) {
@@ -48,7 +54,9 @@ const updateEntry = async (req, res) => {
     .getDb()
     .db('exercise-tracker')
     .collection('exercises')
-    .replaceOne({ _id: userId }, exercise);
+    .replaceOne({
+      _id: userId
+    }, exercise);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -59,7 +67,9 @@ const updateEntry = async (req, res) => {
 
 const deleteEntry = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('exercise-tracker').collection('exercises').deleteOne({ _id: userId }, true);
+  const response = await mongodb.getDb().db('exercise-tracker').collection('exercises').deleteOne({
+    _id: userId
+  }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
