@@ -6,8 +6,7 @@
     "version": "1.0.0"
   },
   "host": "localhost:8080",
-  "basePath": "/v1",
-  "schemes": ["https"],
+  "schemes": ["http"],
   "paths": {
     "/users": {
       "get": {
@@ -47,6 +46,69 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update one exercise.",
+        "description": "Optional extended description in Markdown.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "any"
+                },
+                "Repetitions": {
+                  "example": "any"
+                },
+                "Time Spend": {
+                  "example": "any"
+                },
+                "Place": {
+                  "example": "any"
+                },
+                "Date": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+
+      },
+
+      "delete": {
+        "description": "Deletes an exercise",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

@@ -41,21 +41,24 @@ const createEntry = async (req, res) => {
 };
 
 const updateEntry = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
+  const [month, day, year] = req.body.Date.split("/")
+  const exerciseDate = new Date(`${year}-${month}-${day}`);
+  const formattedDate = exerciseDate.toISOString();
+  const exerciseId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const exercise = {
     Name: req.body.Name,
-    Repetitions: req.body.repetitions,
-    TimeSpend: req.body.timespend,
-    Place: req.body.place,
-    Date: req.body.date
+    Repetitions: req.body.Repetitions,
+    TimeSpend: req.body.TimeSpend,
+    Place: req.body.Place,
+    Date: formattedDate
   };
   const response = await mongodb
     .getDb()
     .db('exercise-tracker')
     .collection('exercises')
     .replaceOne({
-      _id: userId
+      _id: exerciseId
     }, exercise);
   console.log(response);
   if (response.modifiedCount > 0) {

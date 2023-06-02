@@ -9,8 +9,8 @@ router.get('/:id', entriesController.getSingle);
 
 router.post('/', entriesController.createEntry);
 
-//router.put('/:id', entriesController.updateContact);
+router.put('/:id', entriesController.updateEntry);
 
-//router.delete('/:id', entriesController.deleteContact);
+router.delete('/:id', entriesController.deleteEntry);
 
 module.exports = router;
