@@ -21,18 +21,18 @@ content-type: application/json
 
 
 ### PUT contact
-PUT http://localhost:8080/exercises/645dad57adc2f98cd0c50f28 HTTP/1.1
+PUT http://localhost:8080/exercises/647a5631c800a7396ded929f HTTP/1.1
 content-type: application/json
 
 {
     "Name": "Squads",
-    "Repetitions": "10",
-    "TimeSpend": "5 minutes",
+    "Repetitions": 10,
+    "TimeSpend": 10,
     "Place": "Home",
     "Date": "01/10/2023"
 }
 ### DELETE contact
-DELETE http://localhost:8080/exercises/645d8efd9778c6fcbc7c3754 HTTP/1.1
+DELETE http://localhost:8080/exercises/6476930f661c687fc88810f9 HTTP/1.1
 
 // RENDER
 ### Get all contacts
