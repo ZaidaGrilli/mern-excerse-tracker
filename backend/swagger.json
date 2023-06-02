@@ -27,12 +27,33 @@
         "produces": ["application/json"],
         "parameters": [
           {
+            "name": "body",
             "in": "body",
-            "name": "user",
-            "description": "User object that needs to be created",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "Maria"
+                },
+                "LastName": {
+                  "example": "Magdalena"
+                },
+                "Age": {
+                  "example": 20
+                },
+                "Phone Number": {
+                  "example": 4504455714
+                },
+                "Email": {
+                  "example": "exampleemail@example.com"
+                },
+                "Created at": {
+                  "example": "06/02/2023"
+                },
+                "Photo": {
+                  "example": "https://source.unsplash.com/featured/?person"
+                }
+              }
             }
           }
         ]
@@ -43,16 +64,64 @@
         "summary": "Returns a list of exercises.",
         "description": "Optional extended description in Markdown.",
         "produces": ["application/json"],
+        "tags":["exercises"],
         "responses": {
           "200": {
             "description": "OK"
           }
         }
       },
+
+      "post": {
+        "summary": "Creates a new exercises",
+        "description": "Optional extended description for creating a user in Markdown.",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags":["exercises"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "Squads"
+                },
+                "Repetitions": {
+                  "example": 10
+                },
+                "TimeSpend": {
+                  "example": 5
+                },
+                "Place": {
+                  "example": "Gym"
+                },
+                "Date": {
+                  "example": "06/02/2023"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+
+      }
+    },
+
+    "/exercises/{id}": {
+
+          
+
       "put": {
         "summary": "Update one exercise.",
         "description": "Optional extended description in Markdown.",
         "produces": ["application/json"],
+        "tags":["exercises"],
         "parameters": [
           {
             "name": "id",
@@ -67,19 +136,19 @@
               "type": "object",
               "properties": {
                 "Name": {
-                  "example": "any"
+                  "example": "Squads"
                 },
                 "Repetitions": {
-                  "example": "any"
+                  "example": 10
                 },
-                "Time Spend": {
-                  "example": "any"
+                "TimeSpend": {
+                  "example": 5
                 },
                 "Place": {
-                  "example": "any"
+                  "example": "Gym"
                 },
                 "Date": {
-                  "example": "any"
+                  "example": "06/02/2023"
                 }
               }
             }
@@ -95,6 +164,7 @@
 
       "delete": {
         "description": "Deletes an exercise",
+        "tags":["exercises"],
         "parameters": [
           {
             "name": "id",
