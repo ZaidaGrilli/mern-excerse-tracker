@@ -20,7 +20,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:8080',
+  baseURL: process.env.baseURL,
   clientID: '0nJZze2GXv9kr5WeOHVmqe6PqrtFttjn',
   issuerBaseURL: 'https://dev-n7fxs16dbdbppjpg.us.auth0.com'
 };
