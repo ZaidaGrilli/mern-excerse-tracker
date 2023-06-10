@@ -10,6 +10,7 @@
   "paths": {
     "/users": {
       "get": {
+        "tags":["user"],
         "summary": "Returns a list of users.",
         "description": "Optional extended description in Markdown.",
         "produces": ["application/json"],
@@ -23,6 +24,7 @@
       "post": {
         "summary": "Creates a new user.",
         "description": "Optional extended description for creating a user in Markdown.",
+        "tags":["user"],
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [
@@ -41,14 +43,14 @@
                 "Age": {
                   "example": 20
                 },
-                "Phone Number": {
+                "Phone": {
                   "example": 4504455714
                 },
                 "Email": {
                   "example": "exampleemail@example.com"
                 },
                 "Created at": {
-                  "example": "06/02/2023"
+                  "example": "Generated on Server"
                 },
                 "Photo": {
                   "example": "https://source.unsplash.com/featured/?person"
@@ -58,6 +60,73 @@
           }
         ]
       }
+    },
+    "/users/{id}":{
+      "put": {
+        "summary": "Update one user.",
+        "description": "Optional extended description for creating a user in Markdown.",
+        "consumes": ["application/json"],
+        "tags":["user"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "example": "Maria"
+                },
+                "LastName": {
+                  "example": "Magdalena"
+                },
+                "Age": {
+                  "example": 20
+                },
+                "Phone": {
+                  "example": 4504455714
+                },
+                "Email": {
+                  "example": "exampleemail@example.com"
+                },
+                "Created at": {
+                  "example": "Generated on Server"
+                },
+                "Photo": {
+                  "example": "https://source.unsplash.com/featured/?person"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "delete": {
+        "description": "Deletes an user",
+        "tags":["user"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }    
     },
     "/exercises": {
       "get": {
@@ -71,6 +140,7 @@
           }
         }
       },
+
 
       "post": {
         "summary": "Creates a new exercises",
