@@ -13,7 +13,8 @@ const options = {
           "This is an API endpoint built with Express.js. It's main purpose is to showcase an understanding of creating RESTful APIs",
       },
       servers: [
-        { url: process.env.baseurl, description: "Development server" },
+        { url: "http://localhost:8080", description: "Development server" },
+        { url: "https://exercise-tracker-v1.onrender.com", description: "Production server" },
       ],
     },
     apis: ["./*.js"],
