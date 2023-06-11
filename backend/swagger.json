@@ -5,7 +5,7 @@
     "description": "API description in Markdown.",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://exercise-tracker-v1.onrender.com",
   "schemes": ["http"],
   "paths": {
     "/users": {
